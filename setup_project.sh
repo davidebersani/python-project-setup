@@ -17,6 +17,13 @@ check_exit_code() {
 }
 
 project_dir=$1
+
+# Check if the destination directory exists. If not, create it
+if ! [ -d project_dir ]; then
+	echo "==> Creating destination directory..."
+	mkdir -p $project_dir
+fi
+
 input_file="./to_copy.txt"
 
 echo "==> Copying files..."
